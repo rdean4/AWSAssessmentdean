@@ -1,0 +1,98 @@
+Assessment 6/28/19 
+
+1. EBS block storage is used to host databases, and support random read/write operations, 
+while object-based storage can easily distrubute objects across various nodes on the storage back 
+end. 
+
+2. In SQL this is a schema that sets the rules for how tables are related to each other like 
+relational models keep the integrity of the references between tables.  No SQL represents databases
+that are non-relational and they can use different data models like graph, and document, and you don't
+need a predefined schema.
+
+3.You can use HTTPS for read-only access, if your repositories are public as it is easy to use 
+on the client side. If not you should only use SSH. In any case you should use SSH for write 
+access as it has better authentication management.
+
+
+
+Task 1 
+
+Using AWS I create a new instance under the Ohio region launch it, made a new key and saved it.
+Now using PuttyGen I converted that key into a Putty file in order to link in ec2-user command.
+
+Task 2 
+
+1.Using aws S3 I create a new bucket and uploaded the 'mysqlsampledatabase' file 
+
+2. Then I create 2 new IAM users in aws, one user with read only access and the second with full access 
+rigths. 
+
+
+Task 3
+
+Question 3 Write the command that you used for step#2:
+
+ wget https://reggiefinal.s3.us-east-2.amazonaws.com/mysqlsampledatabase.htm
+
+
+
+
+Task 4
+
+1. 2,376,313   9.11MB/s   in 0.2s
+
+2. I use ec2 I copied the 'mysqlsampledatabase.sql' using 'cp', then I wanted to use 'vi' to replace every
+word 'mysql' with 'yoursql' yet I had some issues.
+
+3. I wanted to use 'vi' editor and 'grep' to highlight all NULL in my 'mysqlsampledatabase.sql' file
+
+
+Task 5
+ 
+1. Using aws I created a new database using MariaDB, I also change the sercuity group to Anywhere
+
+2. I also had issues using 'mysql -h awsdean.clsr9avqjgow.us-east-2.rds.amazonaws.com -uroot -p' to import
+my 'mysqlsampledatabase.sql' file into my RDS Database.
+
+
+Task 6
+
+Select c.last_name, c.first_name, p.product_name
+From Customers c
+JOIN Products p
+ON c.customer_id= p.customer_id;
+
+
+
+Task 7
+
+1. I would touch each answer check status, then add file, then commit all files config with user name
+and password then commit again, check log, then push files i.e.:
+
+Touch 'filename'
+git add 'filename'
+git status
+git commit -m 'filename'
+git config user.name 'filename'
+git config user.email 'filename'
+git commit -m 'filename'
+git log
+git push 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
